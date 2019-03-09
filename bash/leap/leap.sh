@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-usage() {
+errorText() {
 	echo "Usage: leap.sh <year>" 
 	exit 1
 }
 
 if  (( "$#" != 1 )); then
-	usage
+	errorText
 fi
 
 if ! [[ $1 =~ ^[0-9]+$ ]]; then
-	usage
+	errorText
 fi
 
 if ((( $1 % 4 == 0 )) && (( $1 % 100 != 0 ))) || (( $1 % 400 ==0 )); then
